@@ -1,0 +1,7 @@
+#compdef 2_short_long
+
+_arguments \
+         '*:file:_files' \
+		{-v,--version}'[(short and long) show version]' \
+		'--help[(long) help message]' \
+		'-l[(short) long long]'

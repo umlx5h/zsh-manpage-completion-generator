@@ -1,0 +1,5 @@
+#compdef 4_shorts
+
+_arguments \
+         '*:file:_files' \
+		{-h,-H,--help}'[help message]'

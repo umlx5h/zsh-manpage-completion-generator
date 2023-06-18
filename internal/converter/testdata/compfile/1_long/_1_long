@@ -1,0 +1,6 @@
+#compdef 1_long
+
+_arguments \
+         '*:file:_files' \
+		'--help[(long) help message]' \
+		'--version[(long) output version]'

@@ -1,0 +1,6 @@
+#compdef 3_old
+
+_arguments \
+         '*:file:_files' \
+		{-V,-Ver,-Version}'[print version]' \
+		'-help[help message]'
