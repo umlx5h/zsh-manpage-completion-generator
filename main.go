@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"runtime/debug"
 	"strings"
 
 	"github.com/umlx5h/zsh-manpage-completion-generator/internal/converter"
@@ -49,7 +50,14 @@ func main() {
 	isVersion := *version_
 
 	if isVersion {
-		fmt.Printf("Version: %s, Commit: %s, Date: %s\n", version, commit, date)
+		if commit != "unset" {
+			fmt.Printf("Version: %s, Commit: %s, Date: %s\n", version, commit, date)
+		} else if buildInfo, ok := debug.ReadBuildInfo(); ok {
+			fmt.Printf("Version: %s\n", buildInfo.Main.Version)
+		} else {
+			fmt.Printf("Version: %s\n", "(unknown)")
+		}
+
 		os.Exit(0)
 	}
 
