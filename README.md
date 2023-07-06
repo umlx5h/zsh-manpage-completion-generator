@@ -11,7 +11,23 @@ So you must first install fish shell, See below for installation instructions.
 
 https://github.com/fish-shell/fish-shell
 
-If you do not want to install fish, you can also manually place and run the conversion python script.
+If you do not want to install fish, you can also manually place and run the conversion python script as an example below.
+
+```
+# download script
+$ sudo wget --backups=1 -P /usr/local/bin/ https://raw.githubusercontent.com/fish-shell/fish-shell/master/share/tools/{create_manpage_completions,deroff}.py
+$ sudo chmod a+x /usr/local/bin/{create_manpage_completions,deroff}.py
+
+# create arbitrary fish completion folder
+$ mkdir ~/fish_generated_completions
+
+# generate fish completions from manpage
+$ create_manpage_completions.py --manpath --cleanup-in ~/fish_generated_completions -d ~/fish_generated_completions --progress
+
+# and then specify -src option to convert
+$ zsh-manpage-completion-generator -src ~/fish_generated_completions
+```
+
 
 ## Installation
 
