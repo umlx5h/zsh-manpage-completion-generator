@@ -38,6 +38,12 @@ Download the binary from [GitHub Releases][release] and drop it in your `$PATH`.
 - [Linux][release]
 - [Mac][release]
 
+**Homebrew:**
+
+```bash
+brew install umlx5h/tap/zsh-manpage-completion-generator
+```
+
 **Go install:**
 
 ```bash
