@@ -35,6 +35,14 @@ changelog:
     exclude:
       - '^docs:'
       - '^test:'
+brews:
+  - repository:
+      owner: umlx5h
+      name: homebrew-tap
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
+    homepage: "https://github.com/umlx5h/zsh-manpage-completion-generator"
+    description: "Automatically generate zsh completions from man page"
+    license: "MIT"
 
 # The lines beneath this are called `modelines`. See `:help modeline`
 # Feel free to remove those if you don't want/use them.
