@@ -31,12 +31,17 @@ $ zsh-manpage-completion-generator -src ~/fish_generated_completions
 
 ## Installation
 
-**Normal:**
+**From binaries:**
 
-Download the binary from [GitHub Releases][release] and drop it in your `$PATH`.
+Download the binary from [GitHub Releases](https://github.com/umlx5h/zsh-manpage-completion-generator/releases/latest) and place it in your `$PATH`.
 
-- [Linux][release]
-- [Mac][release]
+Install the latest binary to `/usr/local/bin`:
+
+```bash
+curl -L "https://github.com/umlx5h/zsh-manpage-completion-generator/releases/latest/download/zsh-manpage-completion-generator_$(uname -s)_$(uname -m).tar.gz" | tar xz zsh-manpage-completion-generator
+chmod a+x ./zsh-manpage-completion-generator
+sudo mv ./zsh-manpage-completion-generator /usr/local/bin/zsh-manpage-completion-generator
+```
 
 **Homebrew:**
 
@@ -127,5 +132,3 @@ Usage of zsh-manpage-completion-generator:
 ## License
 
 MIT
-
-[release]: https://github.com/umlx5h/zsh-manpage-completion-generator/releases/latest
