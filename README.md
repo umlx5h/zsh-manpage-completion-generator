@@ -86,8 +86,9 @@ compinit # This is not necessary if it is called after this.
 ```
 
 You may have to force rebuild zcompdump
+
 ```console
-$ rm -f ~/.zcompdump && compinit
+$ rm -f "${ZDOTDIR-~}/.zcompdump" && compinit
 ```
 
 It is recommended that `compinit` be called only once because of the startup time.  
