@@ -1,9 +1,9 @@
-# This is an example .goreleaser.yml file with some sensible defaults.
-# Make sure to check the documentation at https://goreleaser.com
+version: 1
+
 before:
   hooks:
-    # You may remove this if you don't use go modules.
     - go mod tidy
+
 builds:
   - env:
       - CGO_ENABLED=0
@@ -17,7 +17,7 @@ builds:
 
 archives:
   - format: tar.gz
-    # this name template makes the OS and Arch compatible with the results of uname.
+    # this name template makes the OS and Arch compatible with the results of `uname`.
     name_template: >-
       {{ .ProjectName }}_
       {{- title .Os }}_
@@ -25,16 +25,17 @@ archives:
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
       {{- if .Arm }}v{{ .Arm }}{{ end }}
-checksum:
-  name_template: 'checksums.txt'
-snapshot:
-  name_template: "{{ incpatch .Version }}-next"
+    # Only include binary in archive
+    files:
+      - none*
+
 changelog:
   sort: asc
   filters:
     exclude:
-      - '^docs:'
-      - '^test:'
+      - "^docs:"
+      - "^test:"
+
 brews:
   - repository:
       owner: umlx5h
@@ -44,7 +45,14 @@ brews:
     description: "Automatically generate zsh completions from man page"
     license: "MIT"
 
-# The lines beneath this are called `modelines`. See `:help modeline`
-# Feel free to remove those if you don't want/use them.
-# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
-# vim: set ts=2 sw=2 tw=0 fo=cnqoj
+aurs:
+  -
+    name: zsh-manpage-completion-generator-bin
+    homepage: "https://github.com/umlx5h/zsh-manpage-completion-generator"
+    description: "Automatically generate zsh completions from man page"
+    license: "MIT"
+    private_key: '{{ .Env.AUR_KEY }}'
+    git_url: 'ssh://aur@aur.archlinux.org/zsh-manpage-completion-generator-bin.git'
+    package: |-
+      # bin
+      install -Dm755 "./zsh-manpage-completion-generator" "${pkgdir}/usr/bin/zsh-manpage-completion-generator"
