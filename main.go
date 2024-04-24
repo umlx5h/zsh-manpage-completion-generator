@@ -131,6 +131,19 @@ func main() {
 					return
 				}
 
+				// NOTE: exclude git commands to prevent weird errors
+				// _git:8182: bad math expression: operand expected at `/home/user/...'
+				// _git:8182: bad math expression: operand expected at `/home/user/...'
+				// _git:8182: math recursion limit exceeded: name-rev
+				// _git:8182: bad math expression: operator expected at `browse'
+				if cmdName == "git" || strings.HasPrefix(cmdName, "git-") {
+					if isVerbose {
+						fmt.Printf("skipped git command: %s\n", fileName)
+					}
+					skippedNum++
+					return
+				}
+
 				srcFilePath := filepath.Join(srcDir, fileName)
 				srcFile, err := os.Open(filepath.Join(srcFilePath))
 				if err != nil {
