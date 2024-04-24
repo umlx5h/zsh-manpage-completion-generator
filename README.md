@@ -38,7 +38,7 @@ Download the binary from [GitHub Releases](https://github.com/umlx5h/zsh-manpage
 Install the latest binary to `/usr/local/bin`:
 
 ```bash
-curl -L "https://github.com/umlx5h/zsh-manpage-completion-generator/releases/latest/download/zsh-manpage-completion-generator_$(uname -s)_$(uname -m).tar.gz" | tar xz zsh-manpage-completion-generator
+curl -L "https://github.com/umlx5h/zsh-manpage-completion-generator/releases/latest/download/zsh-manpage-completion-generator_$(uname -s)_$(uname -m).tar.gz" | tar xz
 chmod a+x ./zsh-manpage-completion-generator
 sudo mv ./zsh-manpage-completion-generator /usr/local/bin/zsh-manpage-completion-generator
 ```
@@ -47,6 +47,14 @@ sudo mv ./zsh-manpage-completion-generator /usr/local/bin/zsh-manpage-completion
 
 ```bash
 brew install umlx5h/tap/zsh-manpage-completion-generator
+```
+
+**AUR (Arch User Repository):**
+
+with any AUR helpers
+```
+yay -S zsh-manpage-completion-generator-bin
+paru -S zsh-manpage-completion-generator-bin
 ```
 
 **Go install:**
